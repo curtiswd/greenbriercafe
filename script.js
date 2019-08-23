@@ -1,7 +1,17 @@
 $(document).ready(function () {
 	
-	$('#update').on('click', function () {
 
+    $('#datepicker').datepicker({
+        todayHighlight: 'true',
+        todayBtn: 'linked',
+        disableTouchKeyboard: 'True'
+
+    });
+
+
+    $('#datepicker').on('changeDate', function () {
+
+        $('#datepicker').datepicker('hide');
         var date = new Date($('#datepicker').val());
         var newDay = date.getDate();
         var newMonth = date.getMonth();
@@ -10,11 +20,6 @@ $(document).ready(function () {
         console.log(newTarget);
 
         $('#menu').attr("src", newTarget);
-        // $('#menu').attr('src', $('#menu').attr('src'));
-    });
-
-    $('#datepicker').datepicker({
-        todayHighlight: 'true'
 
     });
 });
